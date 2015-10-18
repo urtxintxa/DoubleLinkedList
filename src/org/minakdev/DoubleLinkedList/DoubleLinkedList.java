@@ -76,12 +76,20 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	      else return elem.equals(current.data);
 	   }
 
-	public T find(T elem) {
-	// Elementua bueltatuko du aurkituz gero, eta null bestela
-
-		// KODEA OSATU ETA KOSTUA KALKULATU
+	public T find(T pElementua) {
+		T elementua = null;
+	
+		Iterator<T> it = iterator();
+		boolean topatua = false;
 		
+		while (it.hasNext() && !topatua) {
+			elementua = it.next();
+			if(pElementua == elementua) {
+				topatua = true;
+			}
+		}
 		
+		return elementua;
 	}
 
 	public boolean isEmpty() { 
@@ -99,7 +107,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	private class ListIterator implements Iterator<T> {
 
 		private int indizea = 0; //Hasieran indizea 0 balioa edukiko du.
-		private Node<T> egungoElementua = first.next;
+		private Node<T> egungoElementua = first;
 		private Node<T> begiratutakoAzkena = null;
 		
 		@Override
