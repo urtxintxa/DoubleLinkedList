@@ -4,7 +4,7 @@ public class Pertsona implements Comparable<Pertsona> {
 	
 	// atributuak
 	private String name;
-        private String na;
+	private String na;
 	
 	public Pertsona(String pName, String pNa) { // Eraikitzailea
 		name = pName;
@@ -15,7 +15,7 @@ public class Pertsona implements Comparable<Pertsona> {
 
 	public void setName(String name) { this.name = name; }
 
-	public String getNA() { return NA; }
+	public String getNA() { return na; }
 
 	public void setNa(String na) { this.na = na; }
 
@@ -27,7 +27,7 @@ public class Pertsona implements Comparable<Pertsona> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Persona other = (Persona) obj;
+		Pertsona other = (Pertsona) obj;
 		if (na == null) {
 			if (other.na != null)
 				return false;
