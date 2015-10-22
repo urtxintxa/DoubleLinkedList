@@ -30,12 +30,31 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	// listako lehen elementua kendu da
 	// Aurrebaldintza: zerrenda ez da hutsa
 	// KODEA OSATU ETA KOSTUA KALKULATU
+		T o = first.data;
+		if (last == first){
+			last  =null;
+			first = null;
+		}
+		else{
+			first = first.next;
+		}
+		count--;
+		return o;
 	}
 
 	public T removeLast() {
 	// listako azken elementua kendu da
 	// Aurrebaldintza: zerrenda ez da hutsa
-	// KODEA OSATU ETA KOSTUA KALKULATU
+		T o = last.data;
+		if (last == first){
+			last  =null;
+			first = null;
+		}
+		else{
+			last = last.prev;
+		}
+		count--;
+		return o;
 	}
 
 
@@ -43,9 +62,20 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	// Aurrebaldintza: zerrenda ez da hutsa
 	// Balio hori listan baldin badago, bere lehen agerpena ezabatuko dut. Kendutako objektuaren erreferentzia 
 	//  bueltatuko du (null ez baldin badago)
-	
-	
-	// KODEA OSATU ETA KOSTUA KALKULATU
+		T o = null;
+		Node<T> egungoa = first;
+		
+		while((egungoa != null) && (o == null)){
+			if (egungoa.data.equals(elem)){
+				o = egungoa.data;
+				egungoa.prev = egungoa.next;
+				egungoa.next = egungoa.next.next;
+			}
+			else{ egungoa = egungoa.next;}
+			
+		}
+		count--;
+		return o;
 	}
 
 	public T first() {
@@ -84,7 +114,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		
 		while (it.hasNext() && !topatua) {
 			elementua = it.next();
-			if(pElementua == elementua) {
+			if(pElementua.equals(elementua)) {
 				topatua = true;
 			}
 		}
@@ -117,6 +147,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 		@Override
 		public T next() {
+			if(!hasNext()) throw new NoSuchElementException();
 			T t = egungoElementua.data;
 			begiratutakoAzkena = egungoElementua;
 			egungoElementua = egungoElementua.next;

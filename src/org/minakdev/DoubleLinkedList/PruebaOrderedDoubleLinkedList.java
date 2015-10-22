@@ -16,7 +16,7 @@ public class PruebaOrderedDoubleLinkedList {
 
 			
 			System.out.print(" Lista ...............");
-			l.visualizarNodos();
+			l.adabegiakInprimatu();
 			System.out.println(" Elementu-kopurua: " + l.size());
 					
 			
@@ -41,7 +41,7 @@ public class PruebaOrderedDoubleLinkedList {
 
 			
 			System.out.print(" Lista ...............");
-			l2.visualizarNodos();
+			l2.adabegiakInprimatu();
 			System.out.println(" Elementu-kopurua: " + l2.size());
 					
 			
