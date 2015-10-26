@@ -32,11 +32,12 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	// KODEA OSATU ETA KOSTUA KALKULATU
 		T o = first.data;
 		if (last == first){
-			last  =null;
+			last  = null;
 			first = null;
 		}
 		else{
 			first = first.next;
+			first.prev = null;
 		}
 		count--;
 		return o;
@@ -47,11 +48,12 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	// Aurrebaldintza: zerrenda ez da hutsa
 		T o = last.data;
 		if (last == first){
-			last  =null;
+			last  = null;
 			first = null;
 		}
 		else{
 			last = last.prev;
+			last.next = null;
 		}
 		count--;
 		return o;
@@ -68,8 +70,16 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 		while((egungoa != null) && (o == null)){
 			if (egungoa.data.equals(elem)){
 				o = egungoa.data;
-				egungoa.prev = egungoa.next;
-				egungoa.next = egungoa.next.next;
+				if(egungoa == first){
+					this.removeFirst();
+				}
+				else if(egungoa == last){
+					this.removeLast();
+				}
+				else{
+					egungoa.prev.next = egungoa.next;
+					egungoa.next.prev = egungoa.prev;
+				}
 			}
 			else{ egungoa = egungoa.next;}
 			
@@ -118,8 +128,13 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 				topatua = true;
 			}
 		}
+		if(topatua){
+			return elementua;
+		}
+		else{
+			return null;
+		}
 		
-		return elementua;
 	}
 
 	public boolean isEmpty() { 
