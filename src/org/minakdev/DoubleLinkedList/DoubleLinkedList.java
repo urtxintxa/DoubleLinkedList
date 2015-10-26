@@ -7,9 +7,9 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 
 	// Atributuak
 	protected Node<T> first; // lehenengoaren erreferentzia
-	protected Node<T> last;
+	protected Node<T> last; // azkenaren erreferentzia
 	protected String deskr;  // deskribapena
-	protected int count;
+	protected int count; // elementuen kopurua
 
 	public DoubleLinkedList() {
 		first = null;
