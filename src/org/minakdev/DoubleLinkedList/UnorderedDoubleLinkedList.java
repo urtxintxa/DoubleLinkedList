@@ -31,7 +31,6 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
 			this.last = aux;
 		}
 		this.count++;
-
 	}
 	
 	public void addAfter(T elem, T target) {
