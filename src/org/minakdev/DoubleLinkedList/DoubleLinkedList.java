@@ -78,9 +78,8 @@ public class DoubleLinkedList<T> implements ListADT<T> {
                 else{
                     egungoa.prev.next = egungoa.next;
                     egungoa.next.prev = egungoa.prev;
+                    count--;
                 }
-
-                count--;
             }
             else{ egungoa = egungoa.next;}
             

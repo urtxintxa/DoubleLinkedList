@@ -55,6 +55,9 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
 				}
 				this.count++;	
 			}
+			else{
+				egungoa = egungoa.next;
+			}
 		}
 	}
 
