@@ -79,11 +79,12 @@ public class DoubleLinkedList<T> implements ListADT<T> {
                     egungoa.prev.next = egungoa.next;
                     egungoa.next.prev = egungoa.prev;
                 }
+
+                count--;
             }
             else{ egungoa = egungoa.next;}
             
         }
-        count--;
         return o;
     }
 
@@ -202,6 +203,20 @@ public class DoubleLinkedList<T> implements ListADT<T> {
             T elem = it.next();
             result = result + "[" + elem.toString() + "] \n";
         }    
-    return "SimpleLinkedList " + result + "]";
+    return "SimpleLinkedList " + result;
+    }
+    
+    public void reverseAdabegiakInprimatu() {
+        System.out.println(this.reverseToString());
+    }
+    
+    public String reverseToString() {
+        String result = new String();
+        Iterator<T> it = reverseIterator();
+        while (it.hasNext()) {
+            T elem = it.next();
+            result = result + "[" + elem.toString() + "] \n";
+        }    
+    return "SimpleLinkedList " + result;
     }
 }

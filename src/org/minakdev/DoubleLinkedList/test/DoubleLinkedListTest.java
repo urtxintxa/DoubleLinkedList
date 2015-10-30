@@ -32,31 +32,53 @@ public class DoubleLinkedListTest {
 
     @Test
     public void testRemoveFirst() {
+    	System.out.println("Revome first________");
         assertSame(l.first(),1);
+        assertSame(l.size(),8);
         l.removeFirst();
         assertSame(l.first(),3);
+        assertSame(l.size(),7);
+        l.adabegiakInprimatu();
+        l.reverseAdabegiakInprimatu();
         l = new UnorderedDoubleLinkedList<>();
         l.addToFront(2);
         assertSame(l.first(), 2);
+        assertSame(l.size(),1);
         l.removeFirst();
         assertSame(l.first(), null);
+        assertSame(l.size(),0);
+        l.adabegiakInprimatu();
+        l.reverseAdabegiakInprimatu();
     }
 
     @Test
     public void testRemoveLast() {
+    	System.out.println("Revome last________");
         assertSame(l.last(), 8);
+        assertSame(l.size(),8);
         l.removeLast();
         assertSame(l.last(), 20);
+        assertSame(l.size(),7);
+        l.adabegiakInprimatu();
+        l.reverseAdabegiakInprimatu();
         l = new UnorderedDoubleLinkedList<>();
         l.addToFront(2);
         assertSame(l.last(), 2);
+        assertSame(l.size(),1);
         l.removeLast();
         assertSame(l.last(), null);
+        assertSame(l.size(),0);
+        l.adabegiakInprimatu();
+        l.reverseAdabegiakInprimatu();
     }
 
     @Test
     public void testRemove() {
-        fail("Not yet implemented");
+    	assertSame(l.size(),8);
+    	assertNull(l.remove(new Integer(243)));
+    	assertSame(l.size(),8);
+    	assertNotNull(l.remove(new Integer(7)));
+    	assertSame(l.size(),7);
     }
 
     @Test
@@ -81,27 +103,29 @@ public class DoubleLinkedListTest {
 
     @Test
     public void testIsEmpty() {
-        fail("Not yet implemented");
+       assertFalse(l.isEmpty());
+       l = new UnorderedDoubleLinkedList<>();
+       assertTrue(l.isEmpty());
+       l.addToFront(new Integer(1));
+       assertFalse(l.isEmpty());
     }
 
     @Test
     public void testSize() {
-        fail("Not yet implemented");
+        assertSame(l.size(),8);
+        l.removeFirst();
+        assertSame(l.size(),7);
     }
 
-    @Test
-    public void testIterator() {
-        fail("Not yet implemented");
-    }
 
     @Test
     public void testAdabegiakInprimatu() {
-        fail("Not yet implemented");
+    	l.adabegiakInprimatu();
     }
-
+    
     @Test
-    public void testToString() {
-        fail("Not yet implemented");
+    public void testReverseAdabegiakInprimatu() {
+    	l.reverseAdabegiakInprimatu();
     }
 
 }
