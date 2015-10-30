@@ -1,15 +1,16 @@
 package org.minakdev.aktoreak;
 
 import java.util.Iterator;
+import org.minakdev.DoubleLinkedList.UnorderedDoubleLinkedList;
 
 public class Aktorea implements Comparable<Aktorea>{
 	
 	private String izena;
-	private PelikulaZerrenda pelikulaZerrenda;
+	private UnorderedDoubleLinkedList<Pelikula> pelikulaZerrenda;
 	
 	public Aktorea(String pIzena) {
 		this.izena = pIzena;
-		this.pelikulaZerrenda = new PelikulaZerrenda();
+		this.pelikulaZerrenda = new UnorderedDoubleLinkedList<Pelikula>();
 	}
 	
 	public String getIzena() {
@@ -17,24 +18,32 @@ public class Aktorea implements Comparable<Aktorea>{
 	}
 	
 	public Iterator<Pelikula> getIteradorea(){
-		return this.pelikulaZerrenda.getIteradorea();
+		return this.pelikulaZerrenda.iterator();
 	}
 	
 	public void sartuPelikula(Pelikula pPelikula) {
-		pelikulaZerrenda.sartuPelikula(pPelikula);
+		pelikulaZerrenda.addToRear(pPelikula);
 	}
 	
-	public PelikulaZerrenda pelikulakBueltatu() {
+	public UnorderedDoubleLinkedList<Pelikula> pelikulakBueltatu() {
 		return this.pelikulaZerrenda;
 	}
 
-	public void pelikuletatikEzabatu() {
-		this.pelikulaZerrenda.aktoreaEzabatu(this);
-		
+//public void pelikuletatikEzabatu() {
+//	this.pelikulaZerrenda.aktoreaEzabatu(this);
+//	
+//}
+	public void pelikuletatikEzabatu2() {
+		Iterator<Pelikula> it = this.pelikulaZerrenda.iterator();
+		while (it.hasNext()) {
+			Pelikula pel = it.next();
+			pel.aktoreaEzabatu(this);
+		}
 	}
 
 	@Override
 	public int compareTo(Aktorea o){
 		// TODO Auto-generated method stub
-		return this.izena.compareTo(o.izena);}
+		return this.izena.compareTo(o.izena);
 	}
+}

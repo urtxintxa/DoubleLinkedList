@@ -18,11 +18,7 @@ public class Pelikula {
 	public String getIzena() {
 		return this.izena;
 	}
-	
-	public void setDirua(float pDirua) {
-		this.dirua = pDirua;
-	}
-	
+		
 	public void sartuAktorea(Aktorea pAktorea) {
 		aktoreZerrenda.aktoreaSartu(pAktorea);
 	}
