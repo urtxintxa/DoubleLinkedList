@@ -112,7 +112,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
                 current = current.next;
                   if (current == null) return false;
           else return elem.equals(current.data);
-       }
+    }
 
     public T find(T pElementua) {
         T elementua = null;
