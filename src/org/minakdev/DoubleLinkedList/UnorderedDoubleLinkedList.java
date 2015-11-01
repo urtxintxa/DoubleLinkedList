@@ -35,14 +35,14 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
 	
 	public void addAfter(T elem, T target) {
 		// KODEA OSATU ETA KOSTUA KALKULATU (AUKERAZKOA)
-		Node<T> egungoa = first;
+		Node<T> egungoa = this.first;
 		boolean aurkitua = false;
 		Node<T> aux = new Node<T>(elem);
 		
 		while((egungoa != null) && !aurkitua){
 			if(egungoa.data.equals(target)){
 				aurkitua = true;
-				if(egungoa== last){
+				if(egungoa== this.last){
 					egungoa.next = aux;
 					aux.prev = egungoa;
 					this.last = aux;
