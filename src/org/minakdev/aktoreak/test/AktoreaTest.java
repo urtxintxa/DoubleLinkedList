@@ -2,6 +2,8 @@ package org.minakdev.aktoreak.test;
 
 import static org.junit.Assert.*;
 
+import java.util.Iterator;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,8 +44,16 @@ public class AktoreaTest {
 		aktorea.sartuPelikula(pelikula1);
 		aktorea.sartuPelikula(pelikula2);
 		
-		PelikulaZerrenda pelikulaZerrenda = aktorea.pelikulakBueltatu();
+		//PelikulaZerrenda pelikulaZerrenda = aktorea.pelikulakBueltatu();
 		
-		assertSame(pelikulaZerrenda.pelikulaBueltatu("Pelikula1"), pelikula1);
+		//assertSame(pelikulaZerrenda.pelikulaBueltatu("Pelikula1"), pelikula1);
+		
+		
+		Iterator<Pelikula> itr = aktorea.getIteradorea();
+		
+		assertSame(itr.next(), pelikula1);
+		assertSame(itr.next(), pelikula2);
+		
+		
 	}
 }
